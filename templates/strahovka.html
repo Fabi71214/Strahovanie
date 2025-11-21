@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Страховой агент - Надежная защита вашего будущего</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --primary-color: #3498db;
+                --secondary-color: #2c3e50;
+                --accent-color: #e74c3c;
+                --text-color: #333;
+                --light-bg: #f8f9fa;
+                --white: #ffffff;
+                --shadow: 0 5px 15px rgba(0,0,0,0.1);
+                --transition: all 0.3s ease;
+            }
+
+            body {
+                font-family: 'Montserrat', sans-serif;
+                line-height: 1.6;
+                color: var(--text-color);
+                background: var(--white);
+                overflow-x: hidden;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            /* Header & Navigation */
+            header {
+                background: var(--white);
+                box-shadow: var(--shadow);
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .logo {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--secondary-color);
+                text-decoration: none;
+            }
+
+            .logo span {
+                color: var(--primary-color);
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                list-style: none;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: var(--secondary-color);
+                font-weight: 500;
+                transition: var(--transition);
+            }
+
+            .nav-links a:hover {
+                color: var(--primary-color);
+            }
+
+            .mobile-menu-btn {
+                display: none;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--secondary-color);
+                cursor: pointer;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 160px 0 100px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: var(--white);
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero-content {
+                max-width: 800px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero h1 {
+                font-family: 'Playfair Display', serif;
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                margin-bottom: 1.5rem;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+
+            .hero p {
+                font-size: clamp(1.1rem, 2vw, 1.3rem);
+                margin-bottom: 2rem;
+                opacity: 0.9;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background: var(--accent-color);
+                color: var(--white);
+                padding: 15px 35px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.1rem;
+                transition: var(--transition);
+                box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+            }
+
+            .cta-button:hover {
+                background: #c0392b;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
+            }
+
+            /* Services Section */
+            .services {
+                padding: 80px 0;
+                background: var(--white);
+            }
+
+            .section-title {
+                text-align: center;
+                font-family: 'Playfair Display', serif;
+                font-size: clamp(2rem, 4vw, 2.5rem);
+                color: var(--secondary-color);
+                margin-bottom: 3rem;
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+
+            .service-card {
+                background: var(--light-bg);
+                padding: 2.5rem 2rem;
+                border-radius: 15px;
+                text-align: center;
+                transition: var(--transition);
+                border: 1px solid #e9ecef;
+            }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+                box-shadow: var(--shadow);
+            }
+
+            .service-icon {
+                font-size: 3rem;
+                color: var(--primary-color);
+                margin-bottom: 1.5rem;
+            }
+
+            .service-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+                color: var(--secondary-color);
+            }
+
+            /* About Section */
+            .about {
+                padding: 80px 0;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: var(--white);
+            }
+
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                align-items: center;
+            }
+
+            .about-text h2 {
+                font-family: 'Playfair Display', serif;
+                font-size: clamp(2rem, 4vw, 2.5rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .stat-item {
+                text-align: center;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+            }
+
+            /* Contact Section */
+            .contact {
+                padding: 80px 0;
+                background: var(--white);
+            }
+
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                background: var(--primary-color);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--white);
+                font-size: 1.2rem;
+                flex-shrink: 0;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 1rem;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1rem;
+            }
+
+            .contact-form button {
+                background: var(--primary-color);
+                color: var(--white);
+                border: none;
+                padding: 15px 30px;
+                border-radius: 8px;
+                font-weight: 600;
+                cursor: pointer;
+                width: 100%;
+                transition: var(--transition);
+            }
+
+            .contact-form button:hover {
+                background: #2980b9;
+            }
+
+            /* VK Community Section */
+            .vk-community {
+                background: linear-gradient(45deg, #0077FF, #0057D9);
+                padding: 80px 0;
+                color: var(--white);
+                text-align: center;
+            }
+
+            .vk-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 15px;
+                background: var(--white);
+                color: #0077FF;
+                padding: 18px 40px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 1.2rem;
+                transition: var(--transition);
+                box-shadow: 0 10px 25px rgba(0, 119, 255, 0.3);
+            }
+
+            .vk-button:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(0, 119, 255, 0.4);
+            }
+
+            /* Footer */
+            footer {
+                background: var(--secondary-color);
+                color: var(--white);
+                padding: 3rem 0;
+                text-align: center;
+            }
+
+            /* Mobile Styles */
+            @media (max-width: 768px) {
+                .container {
+                    padding: 0 15px;
+                }
+
+                /* Navigation */
+                .nav-links {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    background: var(--white);
+                    flex-direction: column;
+                    padding: 1rem 0;
+                    box-shadow: var(--shadow);
+                }
+
+                .nav-links.active {
+                    display: flex;
+                }
+
+                .nav-links li {
+                    padding: 0.5rem 2rem;
+                }
+
+                .mobile-menu-btn {
+                    display: block;
+                }
+
+                /* Hero */
+                .hero {
+                    padding: 120px 0 60px;
+                }
+
+                /* About Section */
+                .about-content {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                    text-align: center;
+                }
+
+                .stats {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                /* Contact Section */
+                .contact-grid {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                }
+
+                .contact-item {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 0.5rem;
+                }
+
+                /* Services */
+                .services-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+
+                .service-card {
+                    padding: 2rem 1.5rem;
+                }
+
+                /* General spacing */
+                .services,
+                .about,
+                .contact,
+                .vk-community {
+                    padding: 60px 0;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero h1 {
+                    font-size: 2rem;
+                }
+
+                .hero p {
+                    font-size: 1rem;
+                }
+
+                .cta-button {
+                    padding: 12px 25px;
+                    font-size: 1rem;
+                }
+
+                .service-icon {
+                    font-size: 2.5rem;
+                }
+
+                .vk-button {
+                    padding: 15px 30px;
+                    font-size: 1rem;
+                }
+            }
+
+            /* Utility Classes */
+            .text-center {
+                text-align: center;
+            }
+
+            .mb-2 {
+                margin-bottom: 2rem;
+            }
+
+            .mt-2 {
+                margin-top: 2rem;
+            }
+            .mg{
+                border-radius: 10px;
+                max-width: 350px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="nav-container">
+                    <a href="#" class="logo">Страховой<span>Агент</span></a>
+                    
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                        <li><a href="#vk">Сообщество</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Надежная защита вашего будущего</h1>
+                    <p>Профессиональное страховое обслуживание с индивидуальным подходом к каждому клиенту. Более 2 лет на рынке страховых услуг.</p>
+                    <a href="#contact" class="cta-button">Бесплатная консультация</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">Мои услуги</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Страхование ипотеки</h3>
+                        <p>Защита вашего дома, квартиры и другого имущества от непредвиденных ситуаций</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Автострахование</h3>
+                        <p>Полный комплекс страховых услуг для владельцев транспортных средств</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Опыт и надежность</h2>
+                        <p>Я — Светлана, ваш друг и страховой агент. Работаю так, как хотела бы, чтобы работали со мной: честно, быстро и с заботой о вашей выгоде.</p>
+                        <p>Моя миссия - сделать страхование простым и понятным процессом, предоставляя каждому клиенту индивидуальный подход и максимальную защиту.</p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">2+</div>
+                                <div>лет опыта</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div>поддержка</div>
+                            </div>
+                        </div>
+                    </div>             
+                    <div style="padding: 20px; border-radius: 15px; text-align: center;">
+                        <img class="mg" src="https://sun9-70.userapi.com/s/v1/ig2/vQKQ4DLU4VLRvtZjecNArAu1fACxE-04NePgHd-JOM0KvH7kTzGHS1CMUNpJ6l5WV8hCkDq6oZf0J2uYYojaL9_X.jpg?quality=95&as=32x46,48x69,72x103,108x155,160x229,240x344,360x516,480x688,540x774,640x917,720x1032,788x1129&from=bu&u=EEYilgi3oNA0xAxnNeYJtfPF9FqjgXUA1yQfJN8zGtQ&cs=788x0">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Свяжитесь со мной</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Телефон</h3>
+                                <p>+7 (903) 699-99-03</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>farbi89@yandex.ru</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Время работы</h3>
+                                <p>Пн-Пт: 9:00-18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form method="POST" action="/messg">
+                            <input name="name" type="text" placeholder="Ваше имя" required>
+                            <input name="tel" type="tel" placeholder="Ваш телефон" required>
+                            <input name="gmail" type="email" placeholder="Ваш email">
+                            <textarea name="mes" placeholder="Ваше сообщение" rows="5" required></textarea>
+                            <button onclick="document.getElementById('myDialog').close()" type="submit">Отправить заявку</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VK Community Section -->
+        <section class="vk-community" id="vk">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Присоединяйтесь к нашему сообществу</h2>
+                <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">Будьте в курсе последних новостей, акций и полезных советов по страхованию</p>
+                <a href="https://vk.com/id1048428484" target="_blank" class="vk-button">
+                    <i class="fab fa-vk"></i>
+                    Подписаться на ВКонтакте
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 СтраховойПартнер. Все права защищены.</p>
+                <p style="margin-top: 1rem; opacity: 0.8;">Ваша надежность - наша профессия</p>
+            </div>
+        </footer>
+
+        <script>
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form submission
+            
+
+            // Add animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe service cards
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        </script>
+    </body>
+</html>
