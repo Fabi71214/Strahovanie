@@ -58,5 +58,3 @@ def send_msndr_email(to_email, subject, message_text):
         print(f"❌ Ошибка отправки: {e}")
         return False
     
-if __name__ == "__main__":
-    ap.run()
